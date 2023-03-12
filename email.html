@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email and Password Validation</title>
+	<script>
+		function validateForm() {
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+			var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+			var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+			if (emailPattern.test(email)) {
+				if (passwordPattern.test(password)) {
+					alert("Email and password are valid");
+				} else {
+					alert("Password must be at least 8 characters long and contain at least one letter and one number");
+				}
+			} else {
+				alert("Email is invalid");
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Email and Password Validation</h1>
+	<label for="email">Enter your email:</label>
+	<input type="email" id="email" required>
+	<label for="password">Enter your password:</label>
+	<input type="password" id="password" required>
+	<button onclick="validateForm()">Validate</button>
+</body>
+</html>
